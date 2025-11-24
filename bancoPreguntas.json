@@ -1,0 +1,150 @@
+{
+  "bancoPreguntas": [
+    {
+      "id": "medicion_001",
+      "categoria": "medicion",
+      "tipo": "respuesta_numerica",
+      "dificultad": "facil",
+      "enunciado": "¿Cuánto mide el ángulo mostrado en la imagen?",
+      "imagen": "assets/angulos/angulo_210.svg",
+      "respuestaCorrecta": 210,
+      "tolerancia": 5,
+      "pistas": [
+        "El ángulo es mayor a 180°",
+        "Usa el método 2: mide desde el otro lado y resta a 360°"
+      ],
+      "explicacion": "Este ángulo mide 210°. Como es mayor a 180°, podemos medirlo restando: 360° - 150° = 210°"
+    },
+    {
+      "id": "operacion_001",
+      "categoria": "operaciones",
+      "tipo": "opcion_multiple",
+      "dificultad": "medio",
+      "enunciado": "Calcula: 48° 35' 52\" + 36° 10' 27\"",
+      "opciones": [
+        "84° 46' 19\"",
+        "85° 46' 19\"",
+        "84° 45' 19\"",
+        "85° 45' 19\""
+      ],
+      "respuestaCorrecta": 0,
+      "explicacion": "Paso 1: Suma segundos: 52\" + 27\" = 79\" = 1' 19\"\nPaso 2: Suma minutos: 35' + 10' + 1' = 46'\nPaso 3: Suma grados: 48° + 36° = 84°\nResultado: 84° 46' 19\""
+    },
+    {
+      "id": "complementario_001",
+      "categoria": "complementarios",
+      "tipo": "respuesta_numerica",
+      "dificultad": "facil",
+      "enunciado": "Si un ángulo mide 50°, ¿cuánto mide su ángulo complementario?",
+      "respuestaCorrecta": 40,
+      "tolerancia": 0,
+      "explicacion": "Los ángulos complementarios suman 90°. Por lo tanto: 90° - 50° = 40°"
+    },
+    {
+      "id": "suplementario_001",
+      "categoria": "suplementarios",
+      "tipo": "respuesta_numerica",
+      "dificultad": "facil",
+      "enunciado": "Si un ángulo mide 67° 12', ¿cuánto mide su ángulo suplementario?",
+      "respuestaCorrecta": "112° 48'",
+      "explicacion": "Los ángulos suplementarios suman 180°. Por lo tanto: 180° - 67° 12' = 112° 48'"
+    },
+    {
+      "id": "trazado_001",
+      "categoria": "trazado",
+      "tipo": "canvas_interactivo",
+      "dificultad": "medio",
+      "enunciado": "Traza un ángulo de 220°",
+      "respuestaCorrecta": 220,
+      "tolerancia": 8,
+      "pistas": [
+        "Primero dibuja un ángulo de 180° (línea recta)",
+        "Luego agrega 40° más desde esa posición"
+      ],
+      "explicacion": "Para trazar 220°: 1) Dibuja una línea de 180°. 2) Desde ahí, traza 40° adicionales usando el transportador."
+    },
+    {
+      "id": "aplicacion_001",
+      "categoria": "aplicacion",
+      "tipo": "opcion_multiple",
+      "dificultad": "medio",
+      "enunciado": "Un reloj marca las 8:00. ¿Qué ángulo forman las manecillas?",
+      "imagen": "assets/aplicaciones/reloj_8.svg",
+      "opciones": [
+        "120°",
+        "240°",
+        "150°",
+        "210°"
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "A las 8:00, la manecilla horaria está en el 8 y la minutera en el 12. Hay 8 espacios entre ellas. Cada espacio = 30°. El ángulo menor es 8 × 30° = 240° (el ángulo mayor a 180°)"
+    },
+    {
+      "id": "conversion_001",
+      "categoria": "operaciones",
+      "tipo": "opcion_multiple",
+      "dificultad": "facil",
+      "enunciado": "Expresa 2.618° en grados, minutos y segundos",
+      "opciones": [
+        "2° 37' 5\"",
+        "2° 36' 5\"",
+        "2° 37' 4.8\"",
+        "2° 36' 48\""
+      ],
+      "respuestaCorrecta": 3,
+      "explicacion": "0.618° × 60 = 37.08' → 0.08' × 60 = 4.8\" ≈ 5\". Resultado: 2° 37' 5\""
+    },
+    {
+      "id": "resta_001",
+      "categoria": "operaciones",
+      "tipo": "respuesta_numerica",
+      "dificultad": "medio",
+      "enunciado": "Calcula: 105° 23' 34\" - 72° 40' 58\"",
+      "respuestaCorrecta": "32° 42' 36\"",
+      "explicacion": "Paso 1: 34\" - 58\" = -24\" → Pedir 1' → 94\" - 58\" = 36\"\nPaso 2: 22' - 40' = -18' → Pedir 1° → 82' - 40' = 42'\nPaso 3: 104° - 72° = 32°\nResultado: 32° 42' 36\""
+    },
+    {
+      "id": "identificacion_001",
+      "categoria": "identificacion",
+      "tipo": "opcion_multiple",
+      "dificultad": "facil",
+      "enunciado": "¿Cuál de los siguientes ángulos es mayor a 180°?",
+      "opciones": [
+        "Un ángulo agudo",
+        "Un ángulo obtuso",
+        "Un ángulo reflejo",
+        "Un ángulo recto"
+      ],
+      "respuestaCorrecta": 2,
+      "explicacion": "Un ángulo reflejo es aquel que mide más de 180° pero menos de 360°. Los otros tipos son menores a 180°."
+    },
+    {
+      "id": "bisectriz_001",
+      "categoria": "aplicacion",
+      "tipo": "respuesta_numerica",
+      "dificultad": "medio",
+      "enunciado": "Luisa ha dibujado un ángulo de 80° y su suplementario, y ha trazado sus bisectrices. ¿Qué ángulo forman las bisectrices de los dos ángulos?",
+      "respuestaCorrecta": 90,
+      "tolerancia": 0,
+      "pistas": [
+        "El suplementario de 80° es 100°",
+        "La bisectriz divide un ángulo en dos partes iguales"
+      ],
+      "explicacion": "Ángulo suplementario: 180° - 80° = 100°. Bisectriz de 80° = 40°. Bisectriz de 100° = 50°. Ángulo formado: 40° + 50° = 90°"
+    }
+  ],
+  "configuracionEvaluacion": {
+    "totalPreguntas": 10,
+    "distribucion": {
+      "medicion": 3,
+      "operaciones": 2,
+      "complementarios": 1,
+      "suplementarios": 1,
+      "trazado": 1,
+      "aplicacion": 2
+    },
+    "tiempoLimite": 1200,
+    "puntosPorPregunta": 10,
+    "mostrarRespuestasCorrectasAlFinal": true
+  }
+}
