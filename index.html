@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aprende sobre ángulos mayores a 180° de forma interactiva">
+    <meta name="theme-color" content="#4A90E2">
+    <title>Ángulos +180°</title>
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1 class="logo-text">Ángulos 180°+</h1>
+                </div>
+
+                <nav class="nav">
+                    <button class="nav-link active" data-seccion="inicio">
+                        <span class="nav-icon">🏠</span>
+                        <span class="nav-text">Inicio</span>
+                    </button>
+                    <button class="nav-link" data-seccion="aprender">
+                        <span class="nav-icon">📚</span>
+                        <span class="nav-text">Aprender</span>
+                    </button>
+                    <button class="nav-link" data-seccion="practicar">
+                        <span class="nav-icon">✏️</span>
+                        <span class="nav-text">Practicar</span>
+                    </button>
+                    <button class="nav-link" data-seccion="evaluar">
+                        <span class="nav-icon">📝</span>
+                        <span class="nav-text">Evaluar</span>
+                    </button>
+                    <button class="nav-link" data-seccion="progreso">
+                        <span class="nav-icon">📊</span>
+                        <span class="nav-text">Progreso</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+        <!-- SECCIÓN: INICIO / DASHBOARD -->
+        <section id="seccion-inicio" class="seccion active">
+            <div class="container">
+
+                <!-- Hero -->
+                <div class="hero">
+                    <div class="hero-content">
+                        <h2 class="hero-title">¡Aprende sobre Ángulos Mayores a 180°!</h2>
+                        <p class="hero-description">
+                            Descubre cómo medir y dibujar ángulos reflexos de forma divertida e interactiva.
+                            ¡Practica y conviértete en un experto de la geometría!
+                        </p>
+                    </div>
+                    <div class="hero-image">
+                        <canvas id="hero-canvas" width="300" height="300"></canvas>
+                    </div>
+                </div>
+
+                <!-- Cards de navegación -->
+                <div class="cards-grid">
+                    <article class="card card-aprender" data-navegar="aprender">
+                        <div class="card-icon">📚</div>
+                        <h3 class="card-title">Aprender</h3>
+                        <p class="card-description">
+                            Descubre qué son los ángulos mayores a 180° y cómo medirlos con dos métodos diferentes.
+                        </p>
+                        <button class="btn btn-primary">Comenzar a aprender</button>
+                    </article>
+
+                    <article class="card card-practicar" data-navegar="practicar">
+                        <div class="card-icon">✏️</div>
+                        <h3 class="card-title">Practicar</h3>
+                        <p class="card-description">
+                            Refuerza tus conocimientos con ejercicios guiados y retroalimentación inmediata.
+                        </p>
+                        <button class="btn btn-primary">Ir a practicar</button>
+                    </article>
+
+                    <article class="card card-evaluar" data-navegar="evaluar">
+                        <div class="card-icon">📝</div>
+                        <h3 class="card-title">Evaluación</h3>
+                        <p class="card-description">
+                            Pon a prueba tus conocimientos con una evaluación de 10 preguntas aleatorias.
+                        </p>
+                        <button class="btn btn-primary">Tomar evaluación</button>
+                    </article>
+
+                    <article class="card card-progreso" data-navegar="progreso">
+                        <div class="card-icon">📊</div>
+                        <h3 class="card-title">Mi Progreso</h3>
+                        <p class="card-description">
+                            Revisa tus estadísticas, calificaciones anteriores y tu evolución en el aprendizaje.
+                        </p>
+                        <button class="btn btn-primary">Ver progreso</button>
+                    </article>
+                </div>
+
+                <!-- Resumen de progreso (solo si hay datos) -->
+                <div id="resumen-progreso" class="resumen-progreso hidden">
+                    <h3 class="resumen-title">📈 Tu Progreso Reciente</h3>
+                    <div class="resumen-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Última calificación</span>
+                            <span class="stat-value" id="ultima-calificacion">--</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Promedio general</span>
+                            <span class="stat-value" id="promedio-general">--</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Evaluaciones completadas</span>
+                            <span class="stat-value" id="total-evaluaciones">--</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECCIÓN: APRENDER (Marco Conceptual)
+        ========================================== -->
+        <section id="seccion-aprender" class="seccion">
+            <div class="container">
+                <div class="seccion-header">
+                    <button class="btn-volver" data-volver="inicio">
+                        ← Volver al inicio
+                    </button>
+                    <h2 class="seccion-title">📚 Marco Conceptual</h2>
+                </div>
+
+                <div class="contenido-aprender">
+                    <!-- El contenido del marco conceptual se cargará aquí -->
+                    <p class="loading">Cargando contenido...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECCIÓN: PRACTICAR (Ejercicios Guiados)
+        ========================================== -->
+        <section id="seccion-practicar" class="seccion">
+            <div class="container">
+                <div class="seccion-header">
+                    <button class="btn-volver" data-volver="inicio">
+                        ← Volver al inicio
+                    </button>
+                    <h2 class="seccion-title">✏️ Ejercicios de Práctica</h2>
+                </div>
+
+                <div class="contenido-practicar">
+                    <!-- Menú de tipos de ejercicios -->
+                    <div class="ejercicios-menu">
+                        <button class="ejercicio-tipo active" data-tipo="identificacion">
+                            Identificación
+                        </button>
+                        <button class="ejercicio-tipo" data-tipo="metodo1">
+                            Método 1
+                        </button>
+                        <button class="ejercicio-tipo" data-tipo="metodo2">
+                            Método 2
+                        </button>
+                        <button class="ejercicio-tipo" data-tipo="medicion">
+                            Medición Visual
+                        </button>
+                        <button class="ejercicio-tipo" data-tipo="dibujo">
+                            Dibujar Ángulo
+                        </button>
+                    </div>
+
+                    <!-- Área de ejercicio -->
+                    <div id="area-ejercicio">
+                        <p class="loading">Selecciona un tipo de ejercicio para comenzar</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECCIÓN: EVALUAR (Evaluación Dinámica)
+        ========================================== -->
+        <section id="seccion-evaluar" class="seccion">
+            <div class="container">
+                <div class="seccion-header">
+                    <button class="btn-volver" data-volver="inicio">
+                        ← Volver al inicio
+                    </button>
+                    <h2 class="seccion-title">📝 Evaluación</h2>
+                </div>
+
+                <!-- Pantalla de inicio de evaluación -->
+                <div id="evaluacion-inicio" class="evaluacion-inicio">
+                    <div class="evaluacion-info">
+                        <h3>¿Listo para la evaluación?</h3>
+                        <ul class="evaluacion-reglas">
+                            <li>✓ 10 preguntas aleatorias</li>
+                            <li>✓ Diferentes cada vez</li>
+                            <li>✓ Calificación sobre 100</li>
+                            <li>✓ Retroalimentación detallada</li>
+                        </ul>
+                        <button class="btn btn-large btn-primary" id="btn-iniciar-evaluacion">
+                            Comenzar Evaluación
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Contenedor de la evaluación (oculto inicialmente) -->
+                <div id="evaluacion-contenedor" class="evaluacion-contenedor hidden">
+                    <!-- Barra de progreso -->
+                    <div class="evaluacion-progreso">
+                        <div class="progreso-info">
+                            <span id="progreso-texto">Pregunta 1 de 10</span>
+                            <span id="cronometro">00:00</span>
+                        </div>
+                        <div class="progreso-barra">
+                            <div id="barra-progreso" class="barra-fill"></div>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta actual -->
+                    <div id="pregunta-contenedor" class="pregunta-contenedor">
+                        <!-- Se llenará dinámicamente -->
+                    </div>
+
+                    <!-- Botones de navegación -->
+                    <div class="evaluacion-botones">
+                        <button class="btn btn-secondary" id="btn-saltar">Saltar</button>
+                        <button class="btn btn-primary" id="btn-siguiente">Siguiente</button>
+                    </div>
+                </div>
+
+                <!-- Resultados (oculto inicialmente) -->
+                <div id="evaluacion-resultados" class="evaluacion-resultados hidden">
+                    <!-- Se llenará con los resultados -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECCIÓN: PROGRESO (Estadísticas)
+        ========================================== -->
+        <section id="seccion-progreso" class="seccion">
+            <div class="container">
+                <div class="seccion-header">
+                    <button class="btn-volver" data-volver="inicio">
+                        ← Volver al inicio
+                    </button>
+                    <h2 class="seccion-title">📊 Mi Progreso</h2>
+                </div>
+
+                <div class="contenido-progreso">
+                    <!-- Estadísticas generales -->
+                    <div class="stats-generales">
+                        <div class="stat-card">
+                            <div class="stat-icon">🎯</div>
+                            <div class="stat-info">
+                                <span class="stat-numero" id="stat-promedio">--</span>
+                                <span class="stat-texto">Promedio</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">⭐</div>
+                            <div class="stat-info">
+                                <span class="stat-numero" id="stat-mejor">--</span>
+                                <span class="stat-texto">Mejor nota</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📝</div>
+                            <div class="stat-info">
+                                <span class="stat-numero" id="stat-total">--</span>
+                                <span class="stat-texto">Evaluaciones</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gráfica de progreso -->
+                    <div class="grafica-contenedor">
+                        <h3>Evolución de Calificaciones</h3>
+                        <canvas id="grafica-progreso" width="600" height="300"></canvas>
+                    </div>
+
+                    <!-- Historial de evaluaciones -->
+                    <div class="historial-contenedor">
+                        <h3>Historial de Evaluaciones</h3>
+                        <div id="historial-lista" class="historial-lista">
+                            <!-- Se llenará dinámicamente -->
+                        </div>
+                    </div>
+
+                    <!-- Botón para limpiar datos -->
+                    <div class="acciones-progreso">
+                        <button class="btn btn-secondary" id="btn-limpiar-datos">
+                            🗑️ Limpiar todo el progreso
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================
+         FOOTER
+    ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Ángulos Mayores a 180° - PWA Educativa</p>
+            <p class="footer-small">Desarrollado para aprender geometría de forma interactiva</p>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         SCRIPTS
+    ============================================ -->
+    <!-- Modelos (Clases POO) -->
+    <script type="module" src="js/models/Angulo.js"></script>
+    <script type="module" src="js/models/Leccion.js"></script>
+    <script type="module" src="js/models/Ejercicio.js"></script>
+    <script type="module" src="js/models/Evaluacion.js"></script>
+    <script type="module" src="js/models/GestorProgreso.js"></script>
+
+    <!-- Managers -->
+    <script type="module" src="js/managers/CacheManager.js"></script>
+    <script type="module" src="js/managers/ServiceWorkerManager.js"></script>
+
+    <!-- Utilidades -->
+    <script type="module" src="js/utils/canvas-helper.js"></script>
+    <script type="module" src="js/utils/random-generator.js"></script>
+
+    <!-- App principal -->
+    <script type="module" src="js/app.js"></script>
+
+    <!-- Registro del Service Worker -->
+    <script>
+        // Registrar Service Worker si está disponible
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker registrado:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.error('Error al registrar Service Worker:', error);
+                    });
+            });
+        }
+    </script>
+</body>
+
+</html>
