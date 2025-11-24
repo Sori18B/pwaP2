@@ -314,10 +314,16 @@ class App {
 
         feedback.classList.remove('hidden');
         if (esCorrecta) {
-            feedback.innerHTML = '<strong>¡Excelente! 🎉</strong><br>Tu respuesta es correcta.';
+            feedback.innerHTML = '<strong>¡Excelente!</strong><br>Tu respuesta es correcta.';
             feedback.className = 'feedback-box success';
         } else {
-            feedback.innerHTML = `<strong>Ups, intenta de nuevo.</strong><br>La respuesta correcta era <strong>${ejercicio.respuestaCorrecta}°</strong>.`;
+            let mensaje = `<strong>Ups, intenta de nuevo.</strong><br>`;
+            if (ejercicio.tipoRespuesta === 'booleana') {
+                mensaje += `La respuesta correcta era <strong>${ejercicio.respuestaCorrecta ? 'SÍ, es mayor' : 'NO, es menor'}</strong>.`;
+            } else {
+                mensaje += `La respuesta correcta era <strong>${ejercicio.respuestaCorrecta}°</strong>.`;
+            }
+            feedback.innerHTML = mensaje;
             feedback.className = 'feedback-box error';
         }
 
@@ -373,7 +379,7 @@ class App {
                 <canvas id="canvas-evaluacion" width="300" height="300"></canvas>
             </div>
             <div class="input-area-eval">
-        `;
+                `;
 
         if (pregunta.tipoRespuesta === 'booleana') {
             html += `
@@ -382,7 +388,7 @@ class App {
             `;
         } else {
             html += `
-                <input type="number" id="input-eval-respuesta" class="input-grados" placeholder="?">
+                <input type="number" id="input-eval-respuesta" class="input-grados-lg" placeholder="?">
                 <span class="unit">°</span>
             `;
         }
@@ -453,7 +459,7 @@ class App {
             </div>
             <p class="resultado-texto">Has acertado <strong>${resultados.correctas}</strong> de ${resultados.total} preguntas.</p>
             <button class="btn btn-primary" onclick="location.reload()">Volver al Inicio</button>
-        `;
+            `;
     }
 
     // --- SECCIÓN PROGRESO ---
