@@ -1,6 +1,6 @@
 export class ServiceWorkerManager {
     constructor() {
-        this.swUrl = '/service-worker.js';
+        this.swUrl = './service-worker.js';
     }
 
     register() {

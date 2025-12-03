@@ -169,10 +169,10 @@
                             Identificación
                         </button>
                         <button class="ejercicio-tipo" data-tipo="metodo1">
-                            Método 1
+                            Método de la Prolongación (Suma)
                         </button>
                         <button class="ejercicio-tipo" data-tipo="metodo2">
-                            Método 2
+                            Método del Ángulo Interno (Resta)
                         </button>
                         <button class="ejercicio-tipo" data-tipo="medicion">
                             Medición Visual
@@ -329,7 +329,7 @@
     ============================================ -->
     <!-- Modelos (Clases POO) -->
     <script type="module" src="js/models/Angulo.js"></script>
-    <script type="module" src="js/models/Leccion.js"></script>
+
     <script type="module" src="js/models/Ejercicio.js"></script>
     <script type="module" src="js/models/Evaluacion.js"></script>
     <script type="module" src="js/models/GestorProgreso.js"></script>
@@ -346,20 +346,7 @@
     <script type="module" src="js/app.js"></script>
 
     <!-- Registro del Service Worker -->
-    <script>
-        // Registrar Service Worker si está disponible
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then(registration => {
-                        console.log('Service Worker registrado:', registration.scope);
-                    })
-                    .catch(error => {
-                        console.error('Error al registrar Service Worker:', error);
-                    });
-            });
-        }
-    </script>
+
 </body>
 
 </html>

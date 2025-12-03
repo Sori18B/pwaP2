@@ -4,6 +4,7 @@ import { Angulo } from './models/Angulo.js';
 import { CanvasHelper } from './utils/canvas-helper.js';
 import { Evaluacion } from './models/Evaluacion.js';
 import { Ejercicio } from './models/Ejercicio.js';
+import { RandomGenerator } from './utils/random-generator.js';
 
 class App {
     constructor() {
@@ -107,101 +108,153 @@ class App {
 
     // --- SECCIÓN APRENDER ---
     initAprender() {
+        // Generar valores dinámicos para los ejemplos
+        const anguloConcavoEjemplo = RandomGenerator.entero(190, 350);
+
+        // Método 1: 180 + extra
+        const extraMetodo1 = RandomGenerator.entero(20, 80);
+        const totalMetodo1 = 180 + extraMetodo1;
+
+        // Método 2: 360 - interno
+        const internoMetodo2 = RandomGenerator.entero(40, 140);
+        const totalMetodo2 = 360 - internoMetodo2;
+
         const container = document.querySelector('.contenido-aprender');
         container.innerHTML = `
             <div class="leccion-intro">
                 <div class="leccion-card">
                     <h3>¿Qué son los ángulos mayores a 180°?</h3>
-                    <p>Hasta ahora conocías los ángulos agudos, rectos y obtusos. ¡Pero el giro puede continuar!</p>
-                    <p>Cuando un ángulo se abre más allá de una línea recta (180°), entramos en el territorio de los <strong>ángulos cóncavos</strong>.</p>
+                    <p>En geometría, es fundamental comprender que los ángulos pueden tener una amplitud mayor a la de un ángulo llano (180°). Estos ángulos representan un giro que supera la media vuelta.</p>
+                    <p>Cuando un ángulo tiene una medida superior a 180° pero no completa el giro total, se le denomina <strong>Ángulo Cóncavo</strong> (o entrante).</p>
                     
                     <div class="conceptos-grid">
                         <div class="concepto">
-                            <h4>Ángulo Cóncavo</h4>
-                            <p>Mide entre <strong>180° y 360°</strong>.</p>
-                            <p class="nota-visual">Parece un "Pac-Man" comiendo.</p>
+                            <h4>1. Ángulo Cóncavo</h4>
+                            <p>Es aquel ángulo cuya medida es <strong>mayor a 180° y menor a 360°</strong>.</p>
+                            <p><strong>Características:</strong> Su apertura es amplia y supera la línea recta. Visualmente, ocupa más espacio que un ángulo llano.</p>
+                            <p class="nota-visual">Ejemplo mostrado: <strong>${anguloConcavoEjemplo}°</strong></p>
                             <div class="canvas-container"><canvas id="canvas-concavo" width="200" height="200"></canvas></div>
                         </div>
                         <div class="concepto">
-                            <h4>Ángulo Completo</h4>
-                            <p>Mide exactamente <strong>360°</strong>.</p>
-                            <p class="nota-visual">¡Es una vuelta completa!</p>
+                            <h4>2. Ángulo Completo</h4>
+                            <p>Es el ángulo que mide exactamente <strong>360°</strong>.</p>
+                            <p><strong>Características:</strong> Representa un giro total. El lado final coincide con el lado inicial después de dar una vuelta completa.</p>
+                            <p class="nota-visual">Giro completo de 360°</p>
                             <div class="canvas-container"><canvas id="canvas-completo" width="200" height="200"></canvas></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <h3 class="titulo-metodos">¿Cómo medirlos? ¡Hay 2 trucos!</h3>
+            <h3 class="titulo-metodos">Métodos de Medición</h3>
 
             <div class="metodos-container">
                 <div class="leccion-card metodo-card">
                     <div class="metodo-header">
                         <span class="numero-metodo">1</span>
-                        <h4>Método de la Prolongación (Sumar)</h4>
+                        <h4>Método de la Prolongación (Suma)</h4>
                     </div>
                     <div class="metodo-pasos">
-                        <p>Imagina que el ángulo es tan grande que "rompe" la línea recta.</p>
+                        <p>Este método consiste en dividir el ángulo en dos partes conocidas.</p>
                         <ol>
-                            <li><strong>Prolonga</strong> (alarga) uno de los lados del ángulo con una línea punteada.</li>
-                            <li>Mide el <strong>pedacito extra</strong> que pasa de la línea recta.</li>
-                            <li>Suma: <strong>180° + lo que mediste</strong>.</li>
+                            <li>Prolonga uno de los lados para formar un ángulo llano (180°).</li>
+                            <li>Mide la parte restante del ángulo (el excedente).</li>
+                            <li>Suma ambas cantidades: <strong>180° + medida excedente</strong>.</li>
                         </ol>
                         <div class="ejemplo-calculo">
-                            Ejemplo: 180° + 45° = <strong>225°</strong>
+                            Cálculo: 180° + ${extraMetodo1}° = <strong>${totalMetodo1}°</strong>
                         </div>
                     </div>
                     <div class="canvas-container">
                         <canvas id="canvas-metodo1" width="280" height="200"></canvas>
-                        <p class="caption">El ángulo rojo es el total. El azul es el "extra".</p>
+                        <p class="caption">Suma: 180° (línea) + ${extraMetodo1}° (rojo) = ${totalMetodo1}°</p>
                     </div>
                 </div>
 
                 <div class="leccion-card metodo-card">
                     <div class="metodo-header">
                         <span class="numero-metodo">2</span>
-                        <h4>Método del Ángulo Interno (Restar)</h4>
+                        <h4>Método del Ángulo Interno (Resta)</h4>
                     </div>
                     <div class="metodo-pasos">
-                        <p>A veces es más fácil medir lo que "falta" para completar la vuelta.</p>
+                        <p>Este método utiliza el ángulo completo como referencia.</p>
                         <ol>
-                            <li>Mide el ángulo <strong>más pequeño</strong> (el de adentro).</li>
-                            <li>Como una vuelta entera son 360°, quítale ese pedazo.</li>
-                            <li>Resta: <strong>360° - lo que mediste</strong>.</li>
+                            <li>Identifica y mide el ángulo convexo (la parte interna o faltante).</li>
+                            <li>Resta esa medida al giro completo (360°).</li>
+                            <li>Operación: <strong>360° - ángulo interno</strong>.</li>
                         </ol>
                         <div class="ejemplo-calculo">
-                            Ejemplo: 360° - 135° = <strong>225°</strong>
+                            Cálculo: 360° - ${internoMetodo2}° = <strong>${totalMetodo2}°</strong>
                         </div>
                     </div>
                     <div class="canvas-container">
                         <canvas id="canvas-metodo2" width="280" height="200"></canvas>
-                        <p class="caption">Medimos el verde (135°) y se lo restamos a 360°.</p>
+                        <p class="caption">Resta: 360° (total) - ${internoMetodo2}° (verde) = ${totalMetodo2}°</p>
                     </div>
                 </div>
+            </div>
+
+            <div class="fuente-cita">
+                <p><strong>Fuente:</strong> Baldor, A. (2004). <em>Geometría plana y del espacio</em>. Publicaciones Cultural.</p>
             </div>
         `;
 
         setTimeout(() => {
+            // 1. Ángulo Cóncavo Aleatorio
             const ctx1 = document.getElementById('canvas-concavo').getContext('2d');
-            CanvasHelper.dibujarAngulo(ctx1, 100, 100, 60, 240, 0, '#F5A623');
+            CanvasHelper.dibujarAngulo(ctx1, 100, 100, 60, anguloConcavoEjemplo, 0, '#F5A623');
 
+            // 2. Ángulo Completo (Fijo)
             const ctx2 = document.getElementById('canvas-completo').getContext('2d');
             CanvasHelper.dibujarAngulo(ctx2, 100, 100, 60, 360, 0, '#7ED321');
 
+            // 3. Método 1: Suma (Dinámico)
             const ctx3 = document.getElementById('canvas-metodo1').getContext('2d');
+            // Línea base
             ctx3.beginPath(); ctx3.moveTo(140, 100); ctx3.lineTo(220, 100); ctx3.stroke();
+            // Línea punteada (prolongación)
             CanvasHelper.dibujarLineaPunteada(ctx3, 140, 100, 60, 100, '#999');
-            const rad = (225 * Math.PI) / 180;
-            ctx3.beginPath(); ctx3.moveTo(140, 100); ctx3.lineTo(140 + 80 * Math.cos(rad), 100 + 80 * Math.sin(rad)); ctx3.strokeStyle = 'black'; ctx3.stroke();
-            ctx3.beginPath(); ctx3.arc(140, 100, 40, 0, rad); ctx3.strokeStyle = '#D0021B'; ctx3.lineWidth = 3; ctx3.stroke();
-            ctx3.beginPath(); ctx3.arc(140, 100, 50, Math.PI, rad); ctx3.strokeStyle = '#4A90E2'; ctx3.stroke();
-            ctx3.fillStyle = '#4A90E2'; ctx3.fillText('45°', 90, 140);
-            ctx3.fillStyle = '#D0021B'; ctx3.fillText('225°', 150, 60);
 
+            const radTotal1 = (totalMetodo1 * Math.PI) / 180;
+            // Línea del ángulo final
+            ctx3.beginPath();
+            ctx3.moveTo(140, 100);
+            ctx3.lineTo(140 + 80 * Math.cos(radTotal1), 100 + 80 * Math.sin(radTotal1));
+            ctx3.strokeStyle = 'black';
+            ctx3.stroke();
+
+            // Arco del "pedacito extra"
+            ctx3.beginPath();
+            ctx3.arc(140, 100, 40, 0, radTotal1);
+            ctx3.strokeStyle = '#D0021B';
+            ctx3.lineWidth = 3;
+            ctx3.stroke();
+
+            // Arco de 180 (referencia visual suave)
+            ctx3.beginPath();
+            ctx3.arc(140, 100, 50, Math.PI, radTotal1); // Esto dibuja el arco grande, ajustamos para que se vea bien
+            // Mejor dibujamos el arco completo del ángulo resultante para que se entienda
+
+            // Texto
+            ctx3.fillStyle = '#4A90E2';
+            ctx3.fillText(`${extraMetodo1}°`, 90, 140);
+            ctx3.fillStyle = '#D0021B';
+            ctx3.fillText(`${totalMetodo1}°`, 150, 60);
+
+            // 4. Método 2: Resta (Dinámico)
             const ctx4 = document.getElementById('canvas-metodo2').getContext('2d');
-            CanvasHelper.dibujarAngulo(ctx4, 140, 100, 60, 225, 0, '#F5A623', 3);
-            ctx4.beginPath(); ctx4.arc(140, 100, 30, (225 * Math.PI) / 180, 0); ctx4.strokeStyle = '#7ED321'; ctx4.lineWidth = 3; ctx4.stroke();
-            ctx4.fillStyle = '#7ED321'; ctx4.fillText('135°', 160, 130);
+            // Dibujar el ángulo grande (resultado)
+            CanvasHelper.dibujarAngulo(ctx4, 140, 100, 60, totalMetodo2, 0, '#F5A623', 3);
+
+            // Dibujar la "rebanada" que falta (el interno)
+            ctx4.beginPath();
+            ctx4.arc(140, 100, 30, (totalMetodo2 * Math.PI) / 180, 0);
+            ctx4.strokeStyle = '#7ED321';
+            ctx4.lineWidth = 3;
+            ctx4.stroke();
+
+            ctx4.fillStyle = '#7ED321';
+            ctx4.fillText(`${internoMetodo2}°`, 160, 130);
         }, 100);
     }
 
